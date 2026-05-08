@@ -1,0 +1,35 @@
+run_name: burgers_fno_neuralop_development
+seed: 42
+device: cuda
+
+data:
+  kind: pdebench_hdf5
+  path: data/1D_Burgers_Sols_Nu0.01_development.hdf5
+  initial_step: 10
+  t_train: 101
+  train_ratio: 0.8
+  reduced_resolution: 1
+  reduced_resolution_t: 1
+  reduced_batch: 1
+  max_samples: 32
+  num_workers: 0
+
+model:
+  backend: neuralop
+  modes: 16
+  width: 32
+  layers: 4
+
+train:
+  epochs: 1
+  batch_size: 4
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  scheduler_step: 20
+  scheduler_gamma: 0.5
+  eval_interval: 1
+  grad_clip_norm: 1.0
+
+output:
+  root: outputs
+  plot: true

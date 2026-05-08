@@ -1,0 +1,33 @@
+run_name: smoke_synthetic_torch_fno
+seed: 42
+device: cuda
+
+data:
+  kind: synthetic_burgers_like
+  samples: 32
+  spatial_points: 32
+  timesteps: 12
+  initial_step: 3
+  t_train: 12
+  train_ratio: 0.75
+  num_workers: 0
+
+model:
+  backend: torch_fno
+  modes: 8
+  width: 16
+  layers: 3
+
+train:
+  epochs: 1
+  batch_size: 8
+  learning_rate: 0.003
+  weight_decay: 0.0001
+  scheduler_step: 10
+  scheduler_gamma: 0.5
+  eval_interval: 1
+  grad_clip_norm: 1.0
+
+output:
+  root: outputs
+  plot: true

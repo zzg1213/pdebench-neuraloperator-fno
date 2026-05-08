@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local environments and notebooks
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+
+# PDEBench data and partial downloads
+data/
+*.hdf5
+*.hdf5.part
+*.part
+
+# Training outputs: keep only the small portfolio result artifacts.
+outputs/**
+!outputs/
+!outputs/burgers_fno_neuralop_development/
+!outputs/burgers_fno_neuralop_development/metrics.json
+!outputs/burgers_fno_neuralop_development/prediction.png
+
+# Model weights and experiment logs
+*.pt
+wandb/
+runs/
+logs/
